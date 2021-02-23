@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+/* Reset and root */
+:root {
+  --header-bg: #ebe8e4;
+  --header-text: #73654e;
+  --body-bg: #fff;
+  --body-text: #333;
+}
+
+*,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+/* Utility */
+
+/* Header */
+header {
+  width: 100%;
+  height: 100px;
+  background-color: var(--header-bg);
+  color: var(--header-text);
+}
+.header-container {
+  max-width: 1150px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.header-logo {
+  height: 100%;
+  width: 290px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+}
+.logo {
+  font-size: 26px;
+}
+/* Header Nav Right */
+.header-container > nav {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  margin-right: 10px;
+  width: 400px;
+}
+
+nav > ul {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav > ul > li > a {
+  text-decoration: none;
+  color: var(--header-text);
+  padding: 8px;
+  position: relative;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+}
+nav > ul > li > a:after {
+  position: absolute;
+  display: block;
+  content: "";
+  border-bottom: 2px solid var(--header-text);
+
+  transition: width 250ms ease-in-out;
+  bottom: 0px;
+  width: 0%;
+  height: 100%;
+}
+
+nav > ul > li > a:hover:after {
+  width: 100%;
+}
+
+/* main */
+
+main {
+  width: 100%;
+  height: auto;
+}
+
+.main-container {
+  min-height: calc(100vh - 100px);
+  max-width: 1150px;
+  margin: 0 auto;
+  color: var(--body-text);
+}
+
+h1 {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.main-container > p {
+  margin-left: 10px;
+  margin-top: 20px;
+}
+/* footer */
+footer {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--header-bg);
+  font-size: 1.2em;
+  position: relative;
+  z-index: 10;
+}
+footer::after {
+  width: 100%;
+  position: absolute;
+  content: "";
+  height: 100px;
+  top: 0px;
+  left: 0px;
+  background-color: #00000015;
+  z-index: -10;
+  transition: width 250ms ease-in-out;
+}
+
+footer:hover::after {
+  width: 0%;
+}
