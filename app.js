@@ -17,8 +17,11 @@ app.use(express.static("public"));
 let AllPosts = [];
 
 app.get("/", (req, res) => {
-  res.render("home.ejs", { pDefault: homeStartingContent, hDefault: "Home" });
-  console.log(AllPosts);
+  res.render("home.ejs", {
+    pDefault: homeStartingContent,
+    hDefault: "Home",
+    allPosts: AllPosts,
+  });
 });
 app.get("/about", (req, res) => {
   res.render("about.ejs", { pDefault: aboutContent, hDefault: "About" });

@@ -15,7 +15,10 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 /* Utility */
-
+h1,
+h2 {
+  margin-top: 50px;
+}
 /* Header */
 header {
   width: 100%;

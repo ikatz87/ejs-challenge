@@ -3,6 +3,10 @@
 <div class="main-container">
   <h1><%= hDefault %></h1>
   <p><%= pDefault %></p>
-</div>
 
+  <% for(let i = 0 ; i < allPosts.length ; i++) { %>
+  <h2><%= allPosts[i].title %></h2>
+  <p><%= allPosts[i].post %></p>
+  <%}%>
+</div>
 <%- include("partials/footer.ejs") %>
