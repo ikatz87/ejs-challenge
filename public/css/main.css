@@ -120,21 +120,7 @@ footer {
   position: relative;
   z-index: 10;
 }
-footer::after {
-  width: 100%;
-  position: absolute;
-  content: "";
-  height: 100px;
-  top: 0px;
-  left: 0px;
-  background-color: #00000015;
-  z-index: -10;
-  transition: width 250ms ease-in-out;
-}
 
-footer:hover::after {
-  width: 0%;
-}
 /* Form */
 form {
   width: 100%;
