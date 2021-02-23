@@ -42,7 +42,14 @@ app.post("/compose", (req, res) => {
   AllPosts.push(Posts);
   res.redirect("/");
 });
-
+app.get(`/posts/:postName`, (req, res) => {
+  let urlToCheck = req.params.postName;
+  AllPosts.forEach((posts) => {
+    posts.title === urlToCheck
+      ? console.log("Match found!!")
+      : console.log("Not Found!!");
+  });
+});
 app.listen(3000, () => {
   console.log("Server started on port 3000");
 });
