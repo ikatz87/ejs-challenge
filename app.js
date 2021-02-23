@@ -8,13 +8,17 @@ const aboutContent =
   "About Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
 const contactContent =
   "Contact Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+
 const app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+let AllPosts = [];
+
 app.get("/", (req, res) => {
   res.render("home.ejs", { pDefault: homeStartingContent, hDefault: "Home" });
+  console.log(AllPosts);
 });
 app.get("/about", (req, res) => {
   res.render("about.ejs", { pDefault: aboutContent, hDefault: "About" });
@@ -31,7 +35,9 @@ app.post("/compose", (req, res) => {
     title: req.body.postTitle,
     post: req.body.post,
   };
-  console.log(Posts.post);
+
+  AllPosts.push(Posts);
+  res.redirect("/");
 });
 
 app.listen(3000, () => {
