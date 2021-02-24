@@ -44,9 +44,10 @@ app.post("/compose", (req, res) => {
   res.redirect("/");
 });
 app.get(`/posts/:postName`, (req, res) => {
-  let urlToCheck = req.params.postName;
+  let urlToCheck = _.lowerCase(req.params.postName);
+
   AllPosts.forEach((posts) => {
-    if (_.lowerCase(posts.title) === _.lowerCase(urlToCheck)) {
+    if (_.lowerCase(posts.title) === urlToCheck) {
       res.render("post", {
         title: posts.title,
         content: posts.post,
